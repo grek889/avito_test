@@ -1,22 +1,24 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from "react";
 import { getStory } from "../../services/hnApi";
-import {Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-export const Story = ({storyId}) => {
-const [story, setStory] = useState({})
+export const Story = ({ storyId }) => {
+  const [story, setStory] = useState({});
 
-useEffect(() => {
-    getStory(storyId).then(data => data &&  setStory(data) );
-}, [storyId])
+  useEffect(() => {
+    getStory(storyId).then((data) => data && setStory(data));
+  }, [storyId]);
 
-const date = new Date(story.time*1000)
+  const date = new Date(story.time * 1000);
 
-return (
+  return (
     <>
-        <Link  to={`/news/${story.id}`}>{story.title}</Link>
-        <p>Рейтинг: {story.score}</p> 
-        <p>Автор: {story.by}</p> 
-        <p>{date.toLocaleDateString("ru-RU")}</p> 
+      <Link className="content__list__news__link" to={`/news/${story.id}`}>{story.title}</Link>
+      <div className="content__list__news__story">
+        <h4>Рейтинг: {story.score}</h4>
+        <h4>Автор: {story.by}</h4>
+        <h4>{date.toLocaleDateString("ru-RU")}</h4>
+      </div>
     </>
-);
-}
+  );
+};

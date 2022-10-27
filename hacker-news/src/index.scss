@@ -4,6 +4,25 @@
   list-style: none;
   outline: none;
   font-family: "Roboto", -apple-system, sans-serif;
+  background: #e8e8e8;
+
+  img{
+    width: 720px;
+    height: 480px;
+  }
+
+  a {
+    outline: none;
+    padding: 2px 1px 0;
+  }
+  a:visited {
+    color: purple;
+  }
+  a:active {
+    color: red;
+  }
+  
+  
 }
 
 .news {
@@ -15,27 +34,35 @@
   &__header {
     display: flex;
     width: 100%;
-    margin: 20px;
+    margin-bottom: 20px;
     justify-content: space-between;
 
-    h1 {
+    .logo {
+      color: black;
+
       font-family: "Oswald";
       font-style: normal;
       font-weight: 400;
+      font-size: 2em;
+      margin-inline-start: 0px;
+      margin-inline-end: 0px;
+      border-bottom: 0ch;
     }
 
-    &__nav{
+    &__nav {
       display: flex;
       align-items: flex-end;
-      
-      ul{
+
+      ul {
         display: flex;
       }
-      li{
+      li {
         margin-right: 10px;
       }
     }
   }
+}
 
-
+.pipi{
+  cursor: pointer;
 }

@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import { Story } from "../Story";
 import { getStoryIds } from "../../services/hnApi.js";
 
+import "./home.scss";
 
-const Home = () => {
+export const Home = () => {
   const [lists, setLists] = useState([]);
 
   useEffect(() => {
@@ -14,15 +15,22 @@ const Home = () => {
     }, 60000);
   }, []);
 
+  const reload = () => {
+    getStoryIds().then((data) => setLists(data.slice(0, 100)));
+  };
+
   return (
-        <ul>
-          {lists &&
-            lists.map((storyId) => (
-              <li key={storyId}>
-                <Story storyId={storyId} />
-              </li>
-            ))}
-        </ul>
+    <div className="content">
+      <ul className="content__list">
+        {lists &&
+          lists.map((storyId) => (
+            <li key={storyId} className="content__list__news">
+              <Story storyId={storyId} />
+            </li>
+          ))}
+        <button onClick={reload}>Обновить</button>
+      </ul>
+    </div>
   );
 };
 

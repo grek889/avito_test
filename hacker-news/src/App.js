@@ -1,16 +1,16 @@
-
 import { Switch, Route, Link } from "react-router-dom";
 
-
-import Home from "./components/home";
+import { Home } from "./components/home";
+import { About } from "./components/About";
+import { News } from "./components/News";
 
 function App() {
-
-
   return (
     <div className="news">
       <div className="news__header">
-        <h1>Hacker news</h1>
+        <a href="/" className="logo">
+          Hacker news
+        </a>
         <nav className="news__header__nav">
           <ul>
             <li>
@@ -28,7 +28,7 @@ function App() {
           <About />
         </Route>
         <Route path="/news/:id">
-            <About />
+          <News />
         </Route>
         <Route path="/">
           <Home />
@@ -39,7 +39,3 @@ function App() {
 }
 
 export default App;
-
-function About() {
-  return <h2>About</h2>;
-}
