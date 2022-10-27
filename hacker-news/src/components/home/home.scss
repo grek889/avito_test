@@ -15,8 +15,9 @@
       margin: 50px;
       box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 
-      .news_link {
+      &__link {
         width: 100%;
+        margin-left: 10px;
       }
       &__story {
         display: flex;
